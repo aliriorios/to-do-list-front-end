@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Lista de Tarefas</title>
+
+  <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Font Awesome Local -->
+  <link rel="stylesheet" href="css/all.min.css">
+  <link rel="stylesheet" href="css/fontawesome.min.css">
+
+  <!-- Font Awesome Link -->
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" 
+    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
+  
+  <script language="JavaScript" src="js/script.js" defer></script>
+</head>
+
+<body>
+  <div id="to-do-container" class="to-do-container">
+    <header id="head-container">
+      <h1>Lista de Tarefas</h1>
+
+      <div id="hdr-date-btn">
+        <p id="current-date"></i></p>
+        <button id="btn-turn-theme" class="btn-header"><i id="theme-icon" class="fa-solid fa-sun"></i></button>
+        <button id="btn-new" class="btn-header"><i id="plus-icon" class="fa-regular fa-plus"></i>New</button>
+      </div>
+    </header>
+    <i class="fa-solid fa-brightness-low"></i>
+    <main id="to-do-list">
+      <!-- PARA QUANDO NÃO HOUVER TAREFAS -->
+      <div id="without-task">Nenhuma tarefa</div>
+    </main>
+
+    <!-- MODAL ADD TO DO -->
+    <dialog id="new-modal-add" class="modal">
+      <header class="header-modal">
+        <h1>Nova Tarefa</h1>
+        <button id="btn-cross-add-modal" class="btn-cross-modal"><i class="fa-solid fa-xmark"></i></button>
+      </header>
+
+      <form id="add-form-todo" class="add-form" method="post">
+        <fieldset class="field-todo">
+          <label for="add-input">Nome da Tarefa</label>
+          <input type="text" id="add-input" class="txt-add-input" placeholder="Insira o nome da tarefa" autofocus required autocomplete="off">
+        </fieldset>
+
+        <fieldset class="field-todo">
+          <label for="add-details">Descrição</label>
+          <textarea id="add-details" class="tarea-details" cols="30" rows="10"
+            placeholder="Insira os detalhes"></textarea>
+        </fieldset>
+
+        <fieldset id="add-date" class="final-time">
+          <label for="add-input-time-final">Data para entrega</label>
+          <input type="date" id="add-input-time-final" class="input-time" required pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}" min="1899-01-01">
+        </fieldset>
+
+        <input type="submit" id="btn-form-submit" class="btn-style" value="Criar tarefa">
+      </form>
+    </dialog>
+
+    <!-- MODAL QUE EXIBE A TAREFA COMPLETA -->
+    <dialog id="show-modal-task" class="modal">
+      <header class="header-modal">
+        <h1 id="show-title"></h1>
+        <span id="show-delivery" class="to-date"></span>
+        <button id="btn-cross-show-modal" class="btn-cross-modal"><i class="fa-solid fa-xmark"></i></button>
+      </header>
+      <p id="details-area"></p>
+    </dialog>
+
+    <!-- MODAL EDIT TO DO -->
+    <dialog id="edit-modal-add" class="modal">
+      <header class="header-modal">
+        <h1>Editar Tarefa</h1>
+        <button id="btn-cross-edit-modal" class="btn-cross-modal"><i class="fa-solid fa-xmark"></i></button>
+      </header>
+
+      <form id="edit-form-todo" class="add-form" method="post">
+        <fieldset class="field-todo">
+          <label for="edit-input">Nome da Tarefa</label>
+          <input type="text" id="edit-input" class="txt-add-input" placeholder="Insira o nome da tarefa" autofocus required autocomplete="off">
+        </fieldset>
+
+        <fieldset class="field-todo">
+          <label for="edit-details">Descrição</label>
+          <textarea id="edit-details" class="tarea-details" cols="30" rows="10"
+            placeholder="Insira os detalhes"></textarea>
+        </fieldset>
+
+        <fieldset id="edit-date" class="final-time">
+          <label for="edit-input-time-final">Data para entrega</label>
+          <input type="date" id="edit-input-time-final" class="input-time" required pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}" min="1899-01-01">
+        </fieldset>
+
+        <input type="submit" id="edit-form-submit" class="btn-style" value="Salvar">
+      </form>
+    </dialog>
+
+  </div>
+
+</body>
+
+</html>

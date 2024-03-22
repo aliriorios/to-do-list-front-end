@@ -1,0 +1,480 @@
+@charset "UTF-8";
+
+/* DEFAULT ---------------------------------- */
+:root {
+  /* PALETA DE CORES */
+  --complete-green-color: #2ADCB2;
+  --progress-purple-color: #A954FF;
+  --light-red: #ff8181;
+  --warning: #f5c825;
+
+  /* Light Theme */
+  --bg-ligh-theme: #f5f5f5;
+  --bg-medium-theme: #e4e4e4;
+  --bg-white: #FFFFFF;
+
+  /* Dark Theme */
+  --bg-ligh-dark: #9b9b9b;
+  --bg-medium-dark: #424242;
+  --bg-strong-dark: #2f3030;
+
+  /* Text */
+  --black: #000000;
+  --white: #ffffff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+
+  box-sizing: border-box;
+
+  font-family: helvetica;
+
+  clear: both;
+
+  font-style: none;
+  border: none;
+}
+
+body {
+  color: var(--black);
+  background: linear-gradient(150deg, var(--complete-green-color), #2288FE, var(--progress-purple-color)) fixed;
+
+  height: 92.50vh;
+
+  transition: 0.3s;
+}
+
+/* DARK THEME ---------------------------------- */
+.dark,
+.dark #theme-icon,
+.dark #btn-new,
+.dark .modal,
+.dark .btn-cross-modal {
+  color: var(--bg-white);
+}
+
+.dark .to-do-container,
+.dark .modal {
+  background: var(--bg-strong-dark);
+}
+
+.dark .to-do-element-list,
+.dark .btn-header,
+.dark .btn-cross-modal {
+  background: var(--bg-medium-dark);
+}
+
+.dark .btn-element-to-do {
+  color: var(--bg-white);
+  background: var(--bg-strong-dark);
+}
+
+.dark .btn-header:hover,
+.dark .btn-element-to-do:hover,
+.dark .btn-cross-modal:hover,
+.dark #btn-form-submit:hover,
+.dark #edit-form-submit:hover {
+  background-color: var(--bg-ligh-dark);
+}
+
+.dark #without-task {
+  color: rgba(255, 255, 255, 0.5);;
+}
+
+/* Modal dark */
+.dark .btn-disable,
+.dark .inProgress {
+  background: var(--bg-ligh-dark);
+}
+
+.dark .field-todo input,
+.dark .field-todo textarea,
+.dark .input-time {
+  color: var(--bg-white);
+  background: var(--bg-light-dark);
+  border: 1px solid var(--bg-medium-dark);
+}
+
+.dark input[type="date"]::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+  filter: invert(100%) sepia(100%) saturate(13%) hue-rotate(237deg) brightness(104%) contrast(104%);
+}
+
+.dark #btn-form-submit,
+.dark #edit-form-submit {
+  color: var(--bg-white);
+  background: var(--bg-medium-dark);
+}
+
+/* HEAD CONTAINER ---------------------------------- */
+#head-container {
+  padding: 5px 0px;
+  margin-bottom: 30px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#to-do-element-btn-container {
+  display: inline;
+
+  float: right;
+}
+
+h1 {
+  font-size: 0.8rem;
+
+  display: inline;
+}
+
+/* CURRENT DATE */
+.fa-calendar-days {
+  margin-right: 5px;
+}
+
+#current-date {
+  font-size: 0.8rem;
+
+  display: inline;
+
+  padding: 7px;
+
+  border-radius: 5px;
+}
+
+/* NEW BUTTON */
+#plus-icon {
+  margin-right: 5px;
+
+  font-size: 1rem;
+}
+
+#btn-new {
+  padding: 5px 8px;
+}
+
+#btn-turn-theme {
+  font-size: 1rem;
+  width: 30px;
+  align-items: center;
+}
+
+.btn-header {
+  height: 29px;
+  
+  font-size: 0.8rem;
+  border-radius: 5px;
+  background-color: var(--bg-ligh-theme);
+  transition: color, 0.3s;
+}
+
+.btn-header:hover,
+.btn-cross-modal:hover {
+  background-color: var(--bg-medium-theme);
+  cursor: pointer;
+}
+
+/* TO DO CONTAINER ---------------------------------- */
+.to-do-container {
+  background: var(--bg-white);
+
+  margin: 70px auto;
+  padding: 15px 30px;
+  max-width: 1200px;
+
+  border-radius: 15px 0px 15px 0px;
+
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* TO DO LIST ELEMENT ---------------------------------- */
+.to-do-element-list {
+  padding: 8px;
+  margin-bottom: 10px;
+
+  border-radius: 10px;
+
+  background: var(--bg-ligh-theme);
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  transition: cursor, 0.1s;
+}
+
+.to-do-element-list:hover {
+  cursor: pointer;
+  border-inline-start: 3px solid var(--complete-green-color);
+}
+
+.to-do-element-list>div>p {
+  font-size: 0.8rem;
+
+  margin-left: 20px;
+  display: inline;
+}
+
+.txt-details {
+  display: none; /* Não quero exibir, quero apenas que exista */
+}
+
+.to-date {
+  font-size: 0.7rem;
+  margin-right: 10px;
+}
+
+.fa-grip-vertical {
+  color: rgba(131, 131, 131, 0.5);
+
+  padding: 0px 8px;
+  cursor: grab;
+}
+
+.fa-spinner,
+.fa-spinner-progress,
+.fa-circle-stop,
+.fa-circle-check,
+.fa-circle-xmark,
+.fa-circle-exclamation {
+  margin-left: 8px;
+}
+
+.fa-spinner,
+.fa-circle-stop {
+  color: rgba(131, 131, 131, 0.7);
+}
+
+.fa-spinner-progress {
+  color: var(--progress-purple-color);
+}
+
+.fa-circle-check {
+  color: var(--complete-green-color);
+}
+
+.fa-circle-xmark {
+  color: var(--light-red);
+}
+
+.fa-circle-exclamation {
+  color: var(--warning);
+}
+
+.btn-element-to-do {
+  font-size: 0.7rem;
+
+  padding: 4px 8px;
+  margin-left: 5px;
+
+  border-radius: 8px;
+
+  background-color: var(--white);
+  border: none;
+}
+
+.btn-element-to-do:hover {
+  cursor: pointer;
+  background-color: var(--bg-medium-theme);
+
+  transition: color, 0.3s;
+}
+
+.start {
+  min-width: 63.5px;
+}
+
+.fa-play,
+.fa-check,
+.fa-pen,
+.fa-pause {
+  margin-right: 5px;
+}
+
+/* FOOTER ---------------------------------- */
+#without-task {
+  padding: 17px 0px 17px 0px;
+
+  text-align: center;
+  font-size: 0.7rem;
+  color: rgba(0, 0, 0, 0.5);
+
+  border-radius: 5px;
+  /* background-color: var(--bg-ligh-theme); */
+}
+
+#btn-show-more {
+  padding: 3px 0px;
+
+  text-align: center;
+  font-size: 0.7rem;
+
+  border-radius: 0px 0px 8px 8px;
+  background-color: var(--bg-ligh-theme);
+
+  transition: color, 0.3s;
+
+  /* display: none; */
+  /* Para -12 elementos na lista ############### */
+}
+
+#btn-show-more:hover {
+  cursor: pointer;
+  background-color: var(--bg-medium-theme);
+}
+
+/* MODAL ADD E EDIT ----------------------------- */
+.modal {
+  width: 400px;
+
+  padding: 15px 25px;
+
+  border-radius: 10px;
+
+  background-color: var(--bg-white);
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.header-modal {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.btn-cross-modal {
+  padding: 5px 10px;
+  border-radius: 10px;
+
+  background-color: var(--bg-ligh-theme);
+
+  transition: color, 0.3s;
+}
+
+.add-form {
+  margin-top: 20px;
+}
+
+fieldset {
+  border: none;
+  margin-top: 20px;
+}
+
+fieldset>label {
+  font-size: 0.7rem;
+  margin-bottom: 7px;
+}
+
+/* ADD NAME & TEXTAREA */
+.field-todo input,
+.field-todo textarea {
+  width: 342px;
+
+  margin-left: 3px;
+  padding: 7px;
+
+  border: 1px solid var(--bg-medium-theme);
+  border-radius: 10px;
+
+  font-size: 0.7rem;
+  background: var(--bg-ligh-theme);
+  outline: 0;
+}
+
+.final-time {
+  display: inline;
+}
+
+.tarea-details {
+  resize: none;
+}
+
+::placeholder {
+  font-size: 0.7rem;
+}
+
+/* SELECT DATA */
+.final-time>label {
+  display: block;
+}
+
+.input-time {
+  width: 150px;
+
+  padding: 5px 20px;
+  margin-left: 3px;
+
+  border: 1px solid var(--bg-medium-theme);
+  border-radius: 5px;
+  outline: none;
+
+  font-size: 0.7rem;
+
+  background-color: var(--bg-ligh-theme);
+}
+
+.input-time:hover {
+  cursor: pointer;
+}
+
+/* BTN SUBMIT */
+#btn-form-submit,
+#edit-form-submit {
+  display: inline;
+
+  width: 150px;
+
+  padding: 5px 20px;
+  margin-top: 20px;
+  margin-left: 38px;
+
+  background-color: var(--bg-ligh-theme);
+
+  font-size: 0.8rem;
+
+  border-radius: 5px;
+
+  transition: color, 0.3s;
+}
+
+#btn-form-submit:hover,
+#edit-form-submit:hover {
+  background-color: var(--bg-medium-theme);
+  cursor: pointer;
+}
+
+#show-task-modal > header > h1 {
+  font-size: 0.8rem;
+  font-weight: normal;
+}
+
+#details-area {
+  margin-top: 15px;
+
+  font-size: 0.8rem;
+}
+
+/* BUTTON DISABLE --------------------- */
+.btn-disable {
+  background-color: var(--bg-medium-theme);
+}
+
+.btn-disable:hover {
+  cursor: not-allowed;
+}
+
+.inProgress {
+  background-color: var(--bg-medium-theme);
+}
+
+.aux-date {
+  display: none;
+}
